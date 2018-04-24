@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body ng-app="myApp" ng-controller="AlertCtrl">
+
+    <script type="text/ng-template" id="alert.html">
+      <div class="alert" style="background-color: grey; color: white">
+        <div ng-transclude></div>
+      </div>
+    </script>
+
+
+    <br>
+    <div class="container">
+      <uib-alert type="info">this is alert info</uib-alert>
+      <uib-alert type="success">this is alert</uib-alert>
+      <uib-alert type="{{ alert.type }}">this is {{alert.message}}</uib-alert>
+      <uib-alert type="info" ng-if="show" close="close()">this is alert with close</uib-alert>
+      <uib-alert type="info" dismiss-on-timeout="10000" ng-if="showAlert" close="closeAlert()">this is alert with close &
+       timeout</uib-alert>
+       <uib-alert template-url="alert.html">this is custom alert</uib-alert>
+    </div>
+     
+  </body>
+</html>
